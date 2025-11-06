@@ -1,0 +1,16 @@
+platform :android do
+  desc "Upload AAB to Production"
+  lane :upload_to_production do
+    supply(
+      json_key_data: ENV["GOOGLE_PLAY_JSON_KEYS"],
+      package_name: "com.hydronixcascado.arhydcas",
+      aab: "build_output/com.hydronixcascado.arhydcas.aab",
+      track: "production",          # ← РЕЛІЗ
+      release_status: "draft",  # full rollout
+      skip_upload_changelogs: false,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      skip_upload_metadata: true
+    )
+  end
+end
