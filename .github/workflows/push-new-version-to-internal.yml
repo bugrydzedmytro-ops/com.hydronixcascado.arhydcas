@@ -29,8 +29,8 @@ jobs:
 
       - name: Run Fastlane uploading 
         env:
-          GOOGLE_PLAY_JSON_KEYS: ${{ secrets.GOOGLE_PLAY_JSON_KEYS }}
+          GOOGLE_PLAY_JSON_KEY: ${{ secrets.GOOGLE_PLAY_JSON_KEY }}
         run: |
-          export GOOGLE_PLAY_JSON_KEYS="$(echo "$GOOGLE_PLAY_JSON_KEYS")"
+          export GOOGLE_PLAY_JSON_KEY="$(echo "$GOOGLE_PLAY_JSON_KEY")"
           bundle exec fastlane android upload_to_production
 
