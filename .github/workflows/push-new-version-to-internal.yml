@@ -27,9 +27,10 @@ jobs:
       - name: Install Fastlane
         run: gem install fastlane
 
-      - name: Run Fastlane uploading to Open Test
+      - name: Run Fastlane uploading 
         env:
           GOOGLE_PLAY_JSON_KEYS: ${{ secrets.GOOGLE_PLAY_JSON_KEYS }}
         run: |
           export GOOGLE_PLAY_JSON_KEYS="$(echo "$GOOGLE_PLAY_JSON_KEYS")"
-          fastlane android upload_to_open
+          bundle exec fastlane android upload_to_production
+
